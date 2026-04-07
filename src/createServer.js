@@ -35,6 +35,8 @@ function createServer() {
     res.setHeader('content-type', 'application/json');
 
     if (errors.length > 0) {
+      res.statusCode = 400;
+      res.statusMessage = 'Bad Request';
       res.end(JSON.stringify({ errors }));
 
       return;
